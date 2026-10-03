@@ -1,0 +1,113 @@
+.about{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+    height: auto;
+    padding: clamp(100px, 14vh, 150px) clamp(24px, 8vw, 128px) clamp(56px, 8vh, 90px);
+    border-top: 4px solid var(--c2);
+    color: var(--c3);
+    background: linear-gradient(125deg, var(--c1) 0 70%, #193b30 100%);
+}
+.about__intro{
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, .8fr);
+    align-items: end;
+    gap: clamp(32px, 8vw, 120px);
+}
+.about__eyebrow{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 26px;
+    color: #b9d7ca;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.about__eyebrow span{
+    width: 9px;
+    height: 9px;
+    background: var(--c2);
+    transform: rotate(45deg);
+}
+.about h2{
+    max-width: 650px;
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: clamp(58px, 7.5vw, 104px);
+    font-weight: 400;
+    line-height: .98;
+}
+.about h2 span{
+    color: #73b99c;
+    font-style: italic;
+}
+.about__copy{
+    max-width: 540px;
+    padding-bottom: 4px;
+    color: #d2d8cc;
+    font-size: 16px;
+    line-height: 1.75;
+}
+.about__copy p{
+    margin: 0 0 18px;
+}
+.about__copy p:last-child{
+    margin-bottom: 0;
+}
+.about__principles{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+    margin-top: clamp(52px, 9vh, 96px);
+    padding-top: 24px;
+    border-top: 1px solid rgba(238, 248, 255, .25);
+}
+.about__principle{
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 14px;
+    align-content: start;
+}
+.about__number{
+    grid-row: span 2;
+    padding-top: 4px;
+    color: #73b99c;
+    font-size: 11px;
+    font-weight: 700;
+}
+.about__principle h3{
+    margin: 0;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 22px;
+    font-weight: 400;
+}
+.about__principle p{
+    margin: 8px 0 0;
+    color: #b9c1b8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+@media (max-width: 760px){
+    .about{
+        padding: 88px 24px 54px;
+    }
+    .about__intro{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+    }
+    .about h2{
+        font-size: clamp(56px, 13vw, 82px);
+    }
+    .about__copy{
+        font-size: 15px;
+    }
+    .about__principles{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+        margin-top: 42px;
+        padding-top: 20px;
+    }
+}
