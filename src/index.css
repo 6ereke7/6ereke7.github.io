@@ -1,0 +1,172 @@
+:root {
+    --accent: rgb(56, 110, 231);
+
+    /* bg colors */
+    --bg: rgb(225, 225, 225);
+    --bg-elevated: rgb(255, 255, 255);
+    --bg-shadow: rgba(0, 0, 0, 0.05);
+    --bg-accent: rgb(from var(--accent) r g b / 0.1);
+
+    /* fg colors */
+    --fg: rgb(25, 25, 25);
+    --fg-muted: rgb(100, 100, 100);
+    --fg-on-accent: rgb(255, 255, 255);
+    --fg-border: rgb(200, 200, 200);
+
+    /* font */
+    --font-sans:
+        system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
+    --font-mono: SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+    /* spacing */
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+
+    /* radii */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 1rem;
+}
+
+[data-theme="dark"] {
+    --bg: rgb(20, 20, 20);
+    --bg-elevated: rgb(30, 30, 30);
+    --bg-shadow: rgba(255, 255, 255, 0.05);
+    --bg-accent: rgb(from var(--accent) r g b / 0.15);
+
+    --fg: rgb(225, 225, 225);
+    --fg-muted: rgb(150, 150, 150);
+    --fg-on-accent: var(--bg);
+    --fg-border: rgb(60, 60, 60);
+}
+/* layouts */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+/* base components */
+
+/*links*/
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* buttons and form elements */
+button,
+input,
+textarea,
+select {
+    --bg: var(--bg-elevated);
+    --fg: var(--fg);
+    --bg-hover: var(--bg-accent);
+    --fg-hover: var(--accent);
+
+    font-family: inherit;
+    font-size: 1rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--fg-border);
+    border-radius: var(--radius-md);
+    background-color: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+button:hover,
+button.accent:hover,
+input:hover,
+textarea:hover,
+select:hover {
+    background-color: var(--bg-hover);
+    border-color: var(--accent);
+    color: var(--fg-hover);
+}
+
+button:focus,
+button.accent:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--accent), 0.2);
+}
+
+button:disabled,
+button.accent:disabled,
+input:disabled,
+textarea:disabled,
+select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:active,
+button.accent:active,
+input:active,
+textarea:active,
+select:active {
+    transform: scale(0.98);
+}
+button.accent {
+    --bg: var(--accent);
+    --fg: var(--fg-on-accent);
+    --bg-hover: rgb(from var(--accent) r g b / 0.9);
+    --fg-hover: var(--fg-on-accent);
+    color: var(--fg);
+    border: none;
+    background-color: var(--bg);
+}
+
+/* cards */
+.card {
+    background-color: var(--bg-elevated);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+    border: 1px solid var(--fg-border);
+    margin: var(--space-md);
+}
+code {
+    --bg: black;
+    background-color: var(--bg);
+    color: var(--fg);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+}
+
+/* effects and animations*/
+.pop {
+    transition: all 0.2s ease;
+}
+
+.pop:hover {
+    scale: 1.008;
+}
