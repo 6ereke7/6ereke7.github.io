@@ -1,0 +1,80 @@
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: color-mix(in srgb, var(--bg) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--fg-border);
+}
+
+.site-header-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+}
+
+.site-brand {
+    font-family: "Doto", var(--font-sans);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--fg);
+    text-decoration: none;
+}
+
+.site-brand:hover,
+.site-brand:focus-visible {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.site-nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin: 0;
+    padding: 0;
+}
+
+.site-nav-list a {
+    color: var(--fg);
+    padding: 0.25rem 0.4rem;
+    border-radius: var(--radius-sm);
+}
+
+.site-nav-list a:hover,
+.site-nav-list a:focus-visible {
+    color: var(--accent);
+    background-color: var(--bg-accent);
+    text-decoration: none;
+}
+
+.theme-toggle {
+    --ctrl-bg: transparent;
+    --ctrl-fg: var(--fg);
+    --ctrl-border: transparent;
+    --ctrl-bg-hover: transparent;
+    --ctrl-fg-hover: var(--fg);
+    --ctrl-border-hover: transparent;
+    --ctrl-ring: none;
+    --icon-size: var(--icon-size-lg);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-sm);
+    line-height: 1;
+}
+
+@media (min-width: 768px) {
+    .site-header-inner {
+        flex-wrap: nowrap;
+    }
+
+    .site-nav-list {
+        gap: var(--space-md);
+    }
+}

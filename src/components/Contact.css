@@ -1,0 +1,39 @@
+.contact-card {
+  margin: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.contact-email {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.contact-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  border: 1px solid var(--fg-border);
+  border-radius: var(--radius-md);
+  background-color: var(--bg-elevated);
+  color: var(--fg);
+  text-decoration: none;
+}
+
+.contact-links a:hover,
+.contact-links a:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  text-decoration: none;
+}

@@ -1,0 +1,33 @@
+.blog-list {
+  display: grid;
+  gap: var(--space-md);
+}
+
+.blog-card {
+  margin: 0;
+}
+
+.blog-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+}
+
+.blog-card h3 a {
+  color: var(--fg);
+}
+
+.blog-card h3 a:hover,
+.blog-card h3 a:focus-visible {
+  color: var(--accent);
+}
+
+.blog-meta {
+  margin: 0 0 var(--space-sm);
+  color: var(--fg-muted);
+  font-size: 0.95rem;
+}
+
+.blog-excerpt {
+  margin: 0 0 var(--space-sm);
+  color: var(--fg-muted);
+}

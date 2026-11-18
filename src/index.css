@@ -2,16 +2,16 @@
     --accent: rgb(56, 110, 231);
 
     /* bg colors */
-    --bg: rgb(225, 225, 225);
-    --bg-elevated: rgb(255, 255, 255);
-    --bg-shadow: rgba(0, 0, 0, 0.05);
+    --bg: #fdfcf5;
+    --bg-elevated: #ffffff;
+    --bg-shadow: rgba(18, 18, 18, 0.06);
     --bg-accent: rgb(from var(--accent) r g b / 0.1);
 
     /* fg colors */
-    --fg: rgb(25, 25, 25);
-    --fg-muted: rgb(100, 100, 100);
-    --fg-on-accent: rgb(255, 255, 255);
-    --fg-border: rgb(200, 200, 200);
+    --fg: #121212;
+    --fg-muted: #5c5c5c;
+    --fg-on-accent: #fdfcf5;
+    --fg-border: #d8d6cc;
 
     /* font */
     --font-sans:
@@ -30,18 +30,36 @@
     --radius-sm: 0.25rem;
     --radius-md: 0.5rem;
     --radius-lg: 1rem;
+
+    /* icons */
+    --icon-size-sm: 1rem;
+    --icon-size-md: 1.25rem;
+    --icon-size-lg: 1.5rem;
+    --icon-size: var(--icon-size-md);
 }
 
 [data-theme="dark"] {
-    --bg: rgb(20, 20, 20);
-    --bg-elevated: rgb(30, 30, 30);
-    --bg-shadow: rgba(255, 255, 255, 0.05);
+    --bg: #121212;
+    --bg-elevated: #1c1c1c;
+    --bg-shadow: rgba(253, 252, 245, 0.06);
     --bg-accent: rgb(from var(--accent) r g b / 0.15);
 
-    --fg: rgb(225, 225, 225);
-    --fg-muted: rgb(150, 150, 150);
-    --fg-on-accent: var(--bg);
-    --fg-border: rgb(60, 60, 60);
+    --fg: #fdfcf5;
+    --fg-muted: #a3a39c;
+    --fg-on-accent: #121212;
+    --fg-border: #333333;
+}
+@font-face {
+    font-family: "Doto";
+    src: url("assets/Doto-Variable.ttf") format("ttf");
+    font-style: normal;
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Silkscreen";
+    src: url("assets/Silkscreen-Regular.ttf") format("ttf");
+    font-style: normal;
+    font-weight: 400;
 }
 /* layouts */
 *,
@@ -83,43 +101,51 @@ button,
 input,
 textarea,
 select {
-    --bg: var(--bg-elevated);
-    --fg: var(--fg);
-    --bg-hover: var(--bg-accent);
-    --fg-hover: var(--accent);
+    --ctrl-bg: var(--fg);
+    --ctrl-fg: var(--bg);
+    --ctrl-border: var(--fg);
+    --ctrl-bg-hover: var(--accent);
+    --ctrl-fg-hover: var(--fg-on-accent);
+    --ctrl-border-hover: var(--accent);
+    --ctrl-ring: 0 0 0 3px rgb(from var(--accent) r g b / 0.35);
 
     font-family: inherit;
     font-size: 1rem;
     padding: var(--space-sm) var(--space-md);
-    border: 1px solid var(--fg-border);
+    border: 1px solid var(--ctrl-border);
     border-radius: var(--radius-md);
-    background-color: var(--bg);
-    color: var(--fg);
+    background-color: var(--ctrl-bg);
+    color: var(--ctrl-fg);
     cursor: pointer;
     transition: all 0.2s ease;
 }
 
 button:hover,
-button.accent:hover,
 input:hover,
 textarea:hover,
-select:hover {
-    background-color: var(--bg-hover);
-    border-color: var(--accent);
-    color: var(--fg-hover);
+select:hover,
+button:active,
+input:active,
+textarea:active,
+select:active {
+    background-color: var(--ctrl-bg-hover);
+    color: var(--ctrl-fg-hover);
+    border-color: var(--ctrl-border-hover);
 }
 
 button:focus,
-button.accent:focus,
 input:focus,
 textarea:focus,
-select:focus {
+select:focus,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(var(--accent), 0.2);
+    box-shadow: var(--ctrl-ring);
 }
 
 button:disabled,
-button.accent:disabled,
 input:disabled,
 textarea:disabled,
 select:disabled {
@@ -128,20 +154,19 @@ select:disabled {
 }
 
 button:active,
-button.accent:active,
 input:active,
 textarea:active,
 select:active {
     transform: scale(0.98);
 }
+
 button.accent {
-    --bg: var(--accent);
-    --fg: var(--fg-on-accent);
-    --bg-hover: rgb(from var(--accent) r g b / 0.9);
-    --fg-hover: var(--fg-on-accent);
-    color: var(--fg);
-    border: none;
-    background-color: var(--bg);
+    --ctrl-bg: var(--accent);
+    --ctrl-fg: var(--fg-on-accent);
+    --ctrl-border: var(--accent);
+    --ctrl-bg-hover: rgb(from var(--accent) r g b / 0.9);
+    --ctrl-fg-hover: var(--fg-on-accent);
+    --ctrl-border-hover: rgb(from var(--accent) r g b / 0.9);
 }
 
 /* cards */
@@ -153,13 +178,41 @@ button.accent {
     margin: var(--space-md);
 }
 code {
-    --bg: black;
-    background-color: var(--bg);
+    background-color: var(--bg-elevated);
     color: var(--fg);
     padding: var(--space-xs) var(--space-sm);
+    border: 1px solid var(--fg-border);
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
     font-size: 0.875rem;
+}
+
+.badge {
+    --badge-bg: rgb(from var(--fg) r g b / 0.08);
+    --badge-fg: var(--fg);
+    --badge-border: 1px solid transparent;
+    --badge-radius: var(--radius-sm);
+    --badge-padding: 0.15rem 0.5rem;
+    --badge-gap: 0.35rem;
+    --badge-font-size: 0.875rem;
+    --badge-font-family: inherit;
+    --badge-line-height: 1.2;
+
+    display: inline-flex;
+    align-items: center;
+    gap: var(--badge-gap);
+    padding: var(--badge-padding);
+    font-size: var(--badge-font-size);
+    font-family: var(--badge-font-family);
+    line-height: var(--badge-line-height);
+    color: var(--badge-fg);
+    background-color: var(--badge-bg);
+    border: var(--badge-border);
+    border-radius: var(--badge-radius);
+}
+
+.badge .icon {
+    --icon-size: var(--icon-size-sm);
 }
 
 /* effects and animations*/
@@ -169,4 +222,60 @@ code {
 
 .pop:hover {
     scale: 1.008;
+}
+
+/* portfolio layout */
+html {
+    scroll-behavior: smooth;
+}
+
+.section {
+    padding: var(--space-xl) 0;
+    scroll-margin-top: 6rem;
+}
+
+.section-heading {
+    margin-bottom: var(--space-lg);
+}
+
+.section-heading h1,
+.section-heading h2 {
+    margin: 0 0 var(--space-xs);
+}
+
+.section-heading p {
+    margin: 0;
+    color: var(--fg-muted);
+    max-width: 65ch;
+}
+
+.site-main {
+    min-height: 60vh;
+}
+
+.icon {
+    width: var(--icon-size);
+    height: var(--icon-size);
+    flex-shrink: 0;
+    vertical-align: middle;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }

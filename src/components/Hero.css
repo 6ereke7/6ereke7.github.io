@@ -1,0 +1,41 @@
+.hero {
+  padding-top: var(--space-xl);
+}
+
+.hero-eyebrow {
+  font-family: "Silkscreen", var(--font-mono);
+  font-size: 0.9rem;
+  margin: 0 0 var(--space-sm);
+  color: var(--fg-muted);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin: 0 0 var(--space-md);
+  max-width: 20ch;
+}
+
+.hero-role {
+  font-family: "Doto", var(--font-sans);
+  font-size: 1.1rem;
+  margin: 0 0 var(--space-sm);
+}
+
+.hero-intro {
+  max-width: 60ch;
+  color: var(--fg-muted);
+  margin: 0 0 var(--space-lg);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.hero-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}

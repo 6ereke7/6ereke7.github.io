@@ -1,26 +1,40 @@
-import type { Project } from "../types/project";
+import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
-    id: "hotela",
-    title: "Hotela",
+    id: "stayflow",
+    title: "StayFlow",
     description:
-      "A hotel booking and reservation system with real-time availability tracking.",
-    imageUrl: new URL("/images/hotela.png", import.meta.url),
-    link: new URL("https://hotela.com"),
-    repo: new URL("https://github.com/username/hotela"),
-    tech: ["React", "TypeScript", "Vite", "Tailwind CSS"],
-    tags: ["Hotel", "Booking", "Reservation"],
+      "Helps small hotels manage room availability and reservations from a single dashboard.",
+    type: "full-stack",
+    imageUrl: "/images/stayflow.svg",
+    imageAlt: "StayFlow booking dashboard preview",
+    tech: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    liveUrl: "https://example.com/stayflow-demo",
+    repoUrl: "https://github.com/6ereke7/stayflow",
   },
   {
-    id: "bus-transit",
-    title: "Bus Transit",
+    id: "transitops",
+    title: "TransitOps",
     description:
-      "A comprehensive bus transportation management system with route optimization and ticketing services.",
-    imageUrl: new URL("/images/bus-transit.png", import.meta.url),
-    link: new URL("https://bustransit.com"),
-    repo: new URL("https://github.com/username/bus-transit"),
-    tech: ["Next.js", "TypeScript", "Node.js", "MongoDB", "Socket.io"],
-    tags: ["Transportation", "Bus", "Ticketing"],
+      "Gives transit operators a clear view of routes, schedules, and ticket sales in real time.",
+    type: "backend",
+    imageUrl: "/images/transitops.svg",
+    imageAlt: "TransitOps route and schedule management preview",
+    tech: ["Node.js", "TypeScript", "Express", "MongoDB"],
+    liveUrl: "https://example.com/transitops-demo",
+    repoUrl: "https://github.com/6ereke7/transitops",
+  },
+  {
+    id: "shopfront",
+    title: "ShopFront",
+    description:
+      "Enables local retailers to showcase products and capture customer inquiries online.",
+    type: "frontend",
+    imageUrl: "/images/shopfront.svg",
+    imageAlt: "ShopFront storefront interface preview",
+    tech: ["React", "TypeScript", "Vite"],
+    liveUrl: "https://example.com/shopfront-demo",
+    repoUrl: "https://github.com/6ereke7/shopfront",
   },
 ];

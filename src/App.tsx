@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import "./App.css";
-import { About } from "./components/About";
-import Header from "./components/Header";
-import { Projects } from "./components/Projects";
-import { Blog } from "./components/Blog";
+import { Route, Routes } from "react-router-dom";
+import { Footer } from "@/components/Footer";
+import Header from "@/components/Header";
+import { BlogPostPage } from "@/pages/BlogPostPage";
+import { HomePage } from "@/pages/HomePage";
 
 function App() {
   const [theme, setTheme] = useState(() => {
@@ -25,14 +25,18 @@ function App() {
   const toggleTheme = () => {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
+
   return (
     <>
-      <Header toggleTheme={toggleTheme} />
-      <main className="container">
-        <About />
-        <Projects />
-        <Blog />
+      <Header toggleTheme={toggleTheme} theme={theme} />
+      <main id="main-content" className="site-main">
+        <Routes>
+          <Route path="/" element={<div className="container"><HomePage /></div>} />
+          <Route path="/blog/:slug" element={<BlogPostPage />} />
+          <Route path="*" element={<BlogPostPage />} />
+        </Routes>
       </main>
+      <Footer />
     </>
   );
 }

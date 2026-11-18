@@ -1,0 +1,32 @@
+.blog-post-page {
+  max-width: 75ch;
+}
+
+.blog-post-header h1 {
+  margin-bottom: var(--space-sm);
+}
+
+.blog-post-meta,
+.blog-post-author {
+  color: var(--fg-muted);
+  margin: 0 0 var(--space-xs);
+}
+
+.blog-post-content {
+  margin-top: var(--space-lg);
+  display: grid;
+  gap: var(--space-md);
+}
+
+.blog-post-content p {
+  margin: 0;
+}
+
+.blog-post-content code {
+  display: inline-block;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: var(--space-md);
+}

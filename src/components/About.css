@@ -1,0 +1,14 @@
+.about-content {
+  margin: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.about-content p {
+  margin: 0;
+  max-width: 70ch;
+}
+
+.availability-note {
+  color: var(--fg);
+}

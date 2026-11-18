@@ -1,0 +1,29 @@
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+
+.skill-card {
+  margin: 0;
+}
+
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: var(--space-sm);
+}
+
+.skill-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.skill-card li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  color: var(--fg-muted);
+}
